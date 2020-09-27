@@ -1,8 +1,8 @@
 ## Transforming TCP sockets to HTTP with Go
 
-Sometimes we need to work with legacy applications. Legacy application that are hard to rewrite and hard to change. Imagine, for example, this application is sending raw TCP sockets to communicate with another process. Raw TCP sockets are fast but they have various problems, for example all data is sent in plain text over the network and withou authentication (if we don't implement one protocol).
+Sometimes we need to work with legacy applications. Legacy application that are hard to rewrite and hard to change. Imagine, for example, this application is sending raw TCP sockets to communicate with another process. Raw TCP sockets are fast but they have various problems, for example all data is sent in plain text over the network and without authentication (if we don't implement one protocol).
 
-One solution is use https connections instead. We can also authenticate those requests with an Authenticatio Bearer. For example I've created one simple http server with Python and Flask:
+One solution is use https connections instead. We can also authenticate those requests with an Authentication Bearer. For example I've created one simple http server with Python and Flask:
 
 ```python
 import logging
@@ -49,7 +49,7 @@ Now we only need to change our legacy application to use one http client instead
 
 One possible solution is isolate the application and change only the destination of the TCP socket. Instead the original ip address whe can use localhost and we can create a proxy at localhost that listen to TCP sockets and send the information to the HTTP server. 
 
-We're going to build this proxy in Go. We can do it with any language (Python, C#, Javascript, ...). My Kung Fu in Go is not so good (I'm more confortable with Python) but it's not so difficult and we can build a bynary with our proxy for Windows, Linux and Mac without any problem. Then we only need to copy the binary into the target host and it works (no installation, no SDK, nothing. Just copy and run)
+We're going to build this proxy in Go. We can do it with any language (Python, C#, Javascript, ...). My Kung Fu in Go is not so good (I'm more comfortable with Python) but it's not so difficult and we can build a binary with our proxy for Windows, Linux and Mac without any problem. Then we only need to copy the binary into the target host and it works (no installation, no SDK, nothing. Just copy and run)
 
 ```go
 package main
